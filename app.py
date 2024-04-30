@@ -136,7 +136,7 @@ def append_logs():
     if os.path.exists('logs.json'):
         with open('logs.json', 'r') as log_file:
             log_data = json.load(log_file)
-    server_uptime = starting_time-time.time()
+    server_uptime = time.time()-starting_time
     log_dict = {"domain_analysis":domain_analysis, "url_reporting": url_reporting, "server_uptime": server_uptime}
     log_data.update(log_dict)
     with open('logs.json', 'w') as log_file:
